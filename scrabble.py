@@ -10,3 +10,8 @@ letter_to_points[" "] = 0
 
 def score_word(word):
     point_total = 0
+
+    for letter in word:
+        point_total += letter_to_points.get(letter, 0)
+
+    return point_total
