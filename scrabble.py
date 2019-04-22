@@ -3,6 +3,11 @@ letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
 points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1,
           3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
 
+letters += [
+    letter.lower()
+    for letter in letters]
+points *= 2
+
 letter_to_points = {key: value for key, value in zip(letters, points)}
 
 letter_to_points[" "] = 0
@@ -42,7 +47,9 @@ def update_point_totals():
 
 def play_word(player, word):
     player_to_words[player].append(word)
+    update_point_totals()
 
 
 play_word("player1", "CODE")
 print(player_to_words)
+print(player_to_points)
